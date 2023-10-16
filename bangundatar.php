@@ -1,6 +1,6 @@
 <?php
 
-// Kelas Induk (Superclass) - BangunDatar
+
 class BangunDatar {
     protected $jenis;
 
@@ -9,7 +9,7 @@ class BangunDatar {
     }
 
     public function hitungLuas() {
-        // Metode ini akan di-override oleh kelas anak
+        
     }
 
     public function tampilkanInfo() {
@@ -17,7 +17,7 @@ class BangunDatar {
     }
 }
 
-// Kelas Anak (Subclass) - Persegi
+
 class Persegi extends BangunDatar {
     private $sisi;
 
@@ -31,7 +31,7 @@ class Persegi extends BangunDatar {
     }
 }
 
-// Kelas Anak (Subclass) - Persegi Panjang
+
 class PersegiPanjang extends BangunDatar {
     private $panjang;
     private $lebar;
@@ -47,7 +47,7 @@ class PersegiPanjang extends BangunDatar {
     }
 }
 
-// Kelas Anak (Subclass) - Segitiga
+
 class Segitiga extends BangunDatar {
     private $alas;
     private $tinggi;
@@ -63,7 +63,7 @@ class Segitiga extends BangunDatar {
     }
 }
 
-// Kelas Anak (Subclass) - Lingkaran
+
 class Lingkaran extends BangunDatar {
     private $jariJari;
 
@@ -77,7 +77,7 @@ class Lingkaran extends BangunDatar {
     }
 }
 
-// Fungsi untuk menampilkan formulir HTML
+
 function tampilkanFormulir() {
     echo '<form method="post" class="container mt-5">';
     echo '<h2 class="mb-4">Kalkulator Luas Bangun Datar Menggunakan Konsep Inheritance</h2>';
@@ -94,24 +94,24 @@ function tampilkanFormulir() {
     echo 'Masukkan Nilai:';
     echo '</div>';
     
-    // Input sisi untuk Persegi
+    
     echo '<div id="inputPersegi" class="form-group">';
     echo 'Sisi: <input type="text" name="sisi_persegi" class="form-control"><br>';
     echo '</div>';
 
-    // Input panjang dan lebar untuk Persegi Panjang
+   
     echo '<div id="inputPersegiPanjang" style="display:none;" class="form-group">';
     echo 'Panjang: <input type="text" name="panjang_persegi_panjang" class="form-control"><br>';
     echo 'Lebar: <input type="text" name="lebar_persegi_panjang" class="form-control"><br>';
     echo '</div>';
 
-    // Input alas dan tinggi untuk Segitiga
+    
     echo '<div id="inputSegitiga" style="display:none;" class="form-group">';
     echo 'Alas: <input type="text" name="alas_segitiga" class="form-control"><br>';
     echo 'Tinggi: <input type="text" name="tinggi_segitiga" class="form-control"><br>';
     echo '</div>';
 
-    // Input jari-jari untuk Lingkaran
+    
     echo '<div id="inputLingkaran" style="display:none;" class="form-group">';
     echo 'Jari-Jari: <input type="text" name="jari_jari_lingkaran" class="form-control"><br>';
     echo '</div>';
@@ -121,7 +121,7 @@ function tampilkanFormulir() {
 }
 
 
-// Fungsi untuk menampilkan hasil perhitungan luas
+
 function tampilkanHasil($jenis, $values) {
     if (isset($jenis)) {
         if ($jenis == 'Persegi') {
@@ -202,7 +202,7 @@ function tampilkanHasil($jenis, $values) {
 
 ?>
 
-<!-- kode html dari program menggunakan inheritance -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -216,7 +216,7 @@ function tampilkanHasil($jenis, $values) {
         $jenis = $_POST["jenis"];
         $values = $_POST;
 
-        // Hapus jenis dari nilai yang akan diproses
+        
         unset($values['jenis']);
 
         tampilkanHasil($jenis, $values);
