@@ -1,14 +1,15 @@
 #include <iostream>
 #include <cmath>
+using namespace std;
 
-// Kelas induk
+
 class BangunDatar {
 public:
     virtual double hitungLuas() const = 0;
     virtual double hitungKeliling() const = 0;
 };
 
-// Kelas-kelas anak
+
 class Persegi : public BangunDatar {
 private:
     double sisi;
@@ -53,8 +54,7 @@ public:
     }
 
     double hitungKeliling() const override {
-        // Untuk sederhana, asumsikan ini adalah segitiga sembarang
-        // dan tidak menghitung panjang sisi
+        
         return -1;
     }
 };
@@ -82,18 +82,18 @@ int main() {
     Segitiga segitiga(3, 4);
     Lingkaran lingkaran(2);
 
-    std::cout << "Luas Persegi: " << persegi.hitungLuas() << std::endl;
-    std::cout << "Keliling Persegi: " << persegi.hitungKeliling() << std::endl;
+    cout << "Luas Persegi: " << persegi.hitungLuas() << endl;
+    cout << "Keliling Persegi: " << persegi.hitungKeliling() << endl;
 
-    std::cout << "Luas Persegi Panjang: " << persegiPanjang.hitungLuas() << std::endl;
-    std::cout << "Keliling Persegi Panjang: " << persegiPanjang.hitungKeliling() << std::endl;
+    cout << "Luas Persegi Panjang: " << persegiPanjang.hitungLuas() << endl;
+    cout << "Keliling Persegi Panjang: " << persegiPanjang.hitungKeliling() << endl;
 
-    std::cout << "Luas Segitiga: " << segitiga.hitungLuas() << std::endl;
-    // Keliling segitiga tidak diimplementasikan, sehingga menghasilkan -1
-    std::cout << "Keliling Segitiga: " << segitiga.hitungKeliling() << std::endl;
+    cout << "Luas Segitiga: " << segitiga.hitungLuas() << endl;
+    
+    cout << "Keliling Segitiga: " << segitiga.hitungKeliling() << endl;
 
-    std::cout << "Luas Lingkaran: " << lingkaran.hitungLuas() << std::endl;
-    std::cout << "Keliling Lingkaran: " << lingkaran.hitungKeliling() << std::endl;
+    cout << "Luas Lingkaran: " << lingkaran.hitungLuas() << endl;
+    cout << "Keliling Lingkaran: " << lingkaran.hitungKeliling() << endl;
 
     return 0;
 }
