@@ -5,95 +5,140 @@ using namespace std;
 
 class BangunDatar {
 public:
-    virtual double hitungLuas() const = 0;
-    virtual double hitungKeliling() const = 0;
+    virtual void hitungLuas() = 0; 
+    virtual void hitungKeliling() = 0; 
 };
 
 
 class Persegi : public BangunDatar {
-private:
-    double sisi;
-
 public:
-    Persegi(double s) : sisi(s) {}
-
-    double hitungLuas() const override {
-        return sisi * sisi;
+    void hitungLuas() override {
+        double sisi;
+        cout << "Masukkan panjang sisi persegi: ";
+        cin >> sisi;
+        luas = sisi * sisi;
+        cout << "Luas persegi: " << luas << endl;
     }
 
-    double hitungKeliling() const override {
-        return 4 * sisi;
+    void hitungKeliling() override {
+        double sisi;
+        cout << "Masukkan panjang sisi persegi: ";
+        cin >> sisi;
+        keliling = 4 * sisi;
+        cout << "Keliling persegi: " << keliling << endl;
     }
+
+private:
+    double luas;
+    double keliling;
 };
+
 
 class PersegiPanjang : public BangunDatar {
-private:
-    double panjang, lebar;
-
 public:
-    PersegiPanjang(double p, double l) : panjang(p), lebar(l) {}
-
-    double hitungLuas() const override {
-        return panjang * lebar;
+    void hitungLuas() override {
+        double panjang, lebar;
+        cout << "Masukkan panjang persegi panjang: ";
+        cin >> panjang;
+        cout << "Masukkan lebar persegi panjang: ";
+        cin >> lebar;
+        luas = panjang * lebar;
+        cout << "Luas persegi panjang: " << luas << endl;
     }
 
-    double hitungKeliling() const override {
-        return 2 * (panjang + lebar);
+    void hitungKeliling() override {
+        double panjang, lebar;
+        cout << "Masukkan panjang persegi panjang: ";
+        cin >> panjang;
+        cout << "Masukkan lebar persegi panjang: ";
+        cin >> lebar;
+        keliling = 2 * (panjang + lebar);
+        cout << "Keliling persegi panjang: " << keliling << endl;
     }
+
+private:
+    double luas;
+    double keliling;
 };
+
 
 class Segitiga : public BangunDatar {
-private:
-    double alas, tinggi;
-
 public:
-    Segitiga(double a, double t) : alas(a), tinggi(t) {}
-
-    double hitungLuas() const override {
-        return 0.5 * alas * tinggi;
+    void hitungLuas() override {
+        double alas, tinggi;
+        cout << "Masukkan panjang alas segitiga: ";
+        cin >> alas;
+        cout << "Masukkan tinggi segitiga: ";
+        cin >> tinggi;
+        luas = 0.5 * alas * tinggi;
+        cout << "Luas segitiga: " << luas << endl;
     }
 
-    double hitungKeliling() const override {
-        
-        return -1;
+    void hitungKeliling() override {
+        double sisi1, sisi2, sisi3;
+        cout << "Masukkan panjang sisi pertama segitiga: ";
+        cin >> sisi1;
+        cout << "Masukkan panjang sisi kedua segitiga: ";
+        cin >> sisi2;
+        cout << "Masukkan panjang sisi ketiga segitiga: ";
+        cin >> sisi3;
+        keliling = sisi1 + sisi2 + sisi3;
+        cout << "Keliling segitiga: " << keliling << endl;
     }
+
+private:
+    double luas;
+    double keliling;
 };
 
+
 class Lingkaran : public BangunDatar {
-private:
-    double jariJari;
-
 public:
-    Lingkaran(double r) : jariJari(r) {}
-
-    double hitungLuas() const override {
-        return M_PI * jariJari * jariJari;
+    void hitungLuas() override {
+        double jariJari;
+        cout << "Masukkan panjang jari-jari lingkaran: ";
+        cin >> jariJari;
+        luas = 3.14 * jariJari * jariJari;
+        cout << "Luas lingkaran: " << luas << endl;
     }
 
-    double hitungKeliling() const override {
-        return 2 * M_PI * jariJari;
+    void hitungKeliling() override {
+        double jariJari;
+        cout << "Masukkan panjang jari-jari lingkaran: ";
+        cin >> jariJari;
+        keliling = 2 * 3.14 * jariJari;
+        cout << "Keliling lingkaran: " << keliling << endl;
     }
+
+private:
+    double luas;
+    double keliling;
 };
 
 int main() {
     
-    Persegi persegi(5);
-    PersegiPanjang persegiPanjang(4, 6);
-    Segitiga segitiga(3, 4);
-    Lingkaran lingkaran(2);
+    Persegi persegi;
+    PersegiPanjang persegiPanjang;
+    Segitiga segitiga;
+    Lingkaran lingkaran;
 
-    cout << "Luas Persegi: " << persegi.hitungLuas() << endl;
-    cout << "Keliling Persegi: " << persegi.hitungKeliling() << endl;
+    cout << "Menghitung Luas dan Keliling Bangun Datar\n";
 
-    cout << "Luas Persegi Panjang: " << persegiPanjang.hitungLuas() << endl;
-    cout << "Keliling Persegi Panjang: " << persegiPanjang.hitungKeliling() << endl;
+    cout << "\nPersegi:\n";
+    persegi.hitungLuas();
+    persegi.hitungKeliling();
 
-    cout << "Luas Segitiga: " << segitiga.hitungLuas() << endl;
-    
-    cout << "Keliling Segitiga: " << segitiga.hitungKeliling() << endl;
+    cout << "\nPersegi Panjang:\n";
+    persegiPanjang.hitungLuas();
+    persegiPanjang.hitungKeliling();
 
-    cout << "Luas Lingkaran: " << lingkaran.hitungLuas() << endl;
-    cout << "Keliling Lingkaran: " << lingkaran.hitungKeliling() << endl;
+    cout << "\nSegitiga:\n";
+    segitiga.hitungLuas();
+    segitiga.hitungKeliling();
+
+    cout << "\nLingkaran:\n";
+    lingkaran.hitungLuas();
+    lingkaran.hitungKeliling();
 
     return 0;
 }
